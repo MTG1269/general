@@ -1,8 +1,21 @@
 @charset "utf-8";
 
+@font-face {
+    font-family: 'good_timesregular';
+    src: url('../font/good_times_rg-webfont.eot');
+    src: url('../font/good_times_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/good_times_rg-webfont.woff2') format('woff2'),
+         url('../font/good_times_rg-webfont.woff') format('woff'),
+         url('../font/good_times_rg-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html, body{	
 	background-color: #000;
 	background-image: linear-gradient(to left, #293133 45%, black 100%);
+	font-family: 'good_timesregular', "Arial Black", Gadget, sans-serif;
 }
 
 body {
@@ -10,51 +23,167 @@ body {
     overflow: hidden;
     height: 100%;
 	width:100%;
+	text-align:center;
 }
 
 a{
 	text-decoration:none;
 }
 
+header{
+	
+}
+
 nav{
-	display:none;
+	position:relative;
+	margin-left: 15%;
+	margin-right: 15%;	
+	background-color:;
+	text-align:center;
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background-position: 0 0, 0 100%;
+  	background-repeat: no-repeat;
+	-webkit-background-size: 100% 6px;
+	-moz-background-size: 100% 6px;
+	background-size: 100% 6px;
+	background-image: -webkit-linear-gradient(right, #fff 0%, RGBA(0, 0, 0, 0) 100%), linear-gradient(to right, #fff 0%, RGBA(0, 0, 0, 0) 100%);
+	background-image: -moz-linear-gradient(right, #fff 0%, RGBA(0, 0, 0, 0) 100%), linear-gradient(to right, #fff 0%, RGBA(0, 0, 0, 0) 100%);
+	background-image: -o-linear-gradient(right, #fff 0%, RGBA(0, 0, 0, 0) 100%), linear-gradient(to right, #fff 0%, RGBA(0, 0, 0, 0) 100%);
+	background-image: linear-gradient(to left, #fff 0%, RGBA(0, 0, 0, 0) 100%), linear-gradient(to right, #fff 0%, RGBA(0, 0, 0, 0) 100%);
+}
+
+nav a{
+	background-color:;
+	color:#FFF ;
+	font-size: 2em;
+	display:inline-block;
+	min-width:120px;
+	padding:25px;
+	
+}
+
+nav a:hover{
+	color:#B6B6B6;
+}
+
+ul{
+	list-style:none;
+}
+
+ul li{
+	min-width:120px;
+	min-height:60px;
+	list-style:none;
+}
+
+footer{
+	color:#FFF;
+	position: absolute;
+	top: 90%;
+	right: 50%;
 }
 
 
-#zahnrad {
-    position: relative;
+.container{
+	position:relative;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.flex-container{
+	display:flex;
+	flex-wrap: wrap;
+}
+
+.flex-item{
+	background: #DFDFDF;
+	margin: 0 auto;
+	  
+	line-height: 150px;
+	color: black;
+	font-weight: bold;
+	font-size: 3em;
+	text-align: left;
+}
+
+#header{
+	min-width: 480px;
+	width: 70%;
+	margin: 4% 15%;
+}
+
+#index_nav{
+	display:none;
+}
+
+#index_anchor{
+    font-size: 5em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: azure;
+}
+
+#cogwheel_1 {	
+/*  position: relative;
   	display:inline-block;
     margin: 0 auto;
 	margin-top: 15%;
     width: 25%;
 	pointer-events: none;
-} 
+*/} 
 
-/* Scale canvas with resize attribute to full size */
-canvas[resize] {
-	width:100%;
-	height:100%;
+#cogwheel_2 {
+	
+	position:relative;
+	bottom: -68px;
+	right: 20px;} 
+
+
+.cogwheels{
+	display:inline-block;
+	margin:10%;
+	min-width:575px;
 }
 
-
-.index_content{
-	text-align: center;	
-}
-
-.index_content:hover img{
-	animation: zahnrad_rotate 2500ms linear infinite;
+.cogwheels:hover img#cogwheel_1{
+	animation: cogwheel_rotate_ccw 2500ms linear forwards infinite;
 
 }
 
-.index_content a:focus img{
-	animation: zahnrad_onclick_action 2s linear forwards !important;
+.cogwheels:hover img#cogwheel_2{
+	animation: cogwheel_rotate_cw 2500ms linear forwards infinite;
+
 }
+
+.cogwheels:focus{
+	top:25px;
+	right: 25px;
+	animation: move 2s ease forwards !important;
+}
+
+.cogwheels:focus img#cogwheel_1{
+	animation: cogwheel_rotate_ccw 2500ms linear forwards infinite;
+}
+
+.cogwheels:focus img#cogwheel_2{
+	animation: cogwheel_rotate_cw 2500ms linear forwards infinite;
+}
+
 
 /*.index_content img:active{
 	animation: zahnrad_rotate 10s linear 0s infinite;
 }
 */		
-@keyframes zahnrad_rotate{
+
+@keyframes cogwheel_rotate_cw{
+	100%{
+		 transform: rotate(360deg);
+		}		
+}
+
+@keyframes cogwheel_rotate_ccw{
 	100%{
 		 transform: rotate(-360deg);
 		}		
@@ -65,27 +194,23 @@ canvas[resize] {
 		transform: rotate(-75deg) scale(0.8); 
 		}	
 	40%{
-		 transform: rotate(-150deg) scale(0.65); 
+		 transform: rotate(-150deg) scale(1.2); 
 		}	
 	60%{
-		 transform: rotate(-225deg) scale(0.5); 
+		 transform: rotate(-225deg) scale(0.9); 
 		}	
 	80%{
-		 transform: rotate(-300deg) scale(0.35); 
+		 transform: rotate(-300deg) scale(1.1); 
 		}	
 	100%{
-		 transform: translate(260px, -260px) rotate(-360deg) scale(0.2);
+		 transform: rotate(-360deg) scale(1);
 		}	
 }
 
 @keyframes move{
 	100%{
-		 transform: translate3d(-50%, 0, 0);
-		/*position:absolute;
-		top:25px;
-		right: 25px;*/
-		}
-	
+		transform: translate3d(100%, -60%, 0) scale(0.4);
+	}	
 }
 	
 
@@ -103,3 +228,36 @@ canvas[resize] {
 	animation-timing-function: ease;	
 	animation-play-state: running;
 */
+
+/* Scale canvas with resize attribute to full size */
+
+/*canvas[resize] {
+	width:100%;
+	height:100%;
+}
+*/
+
+
+/* Large */
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .navigation {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .navigation {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
